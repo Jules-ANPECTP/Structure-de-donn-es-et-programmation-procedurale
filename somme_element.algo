@@ -1,0 +1,31 @@
+ALGORITHM SommeDesDistincts
+VAR
+  tab1, tab2 : tableau d'entiers
+  i, j, somme : entier
+  estPresent : booléen
+
+BEGIN
+  tab1 ← [3, 1, 7, 9]
+  tab2 ← [2, 4, 1, 9, 3]
+  somme ← 0
+  Pour i de 0 à longueur(tab1) - 1
+    estPresent ← FAUX
+    Pour j de 0 à longueur(tab2) - 1
+      Si tab1[i] = tab2[j] alors
+        estPresent ← VRAI
+    FinPour
+    Si estPresent = FAUX alors
+      somme ← somme + tab1[i]
+  FinPour
+  Pour i de 0 à longueur(tab2) - 1
+    estPresent ← FAUX
+    Pour j de 0 à longueur(tab1) - 1
+      Si tab2[i] = tab1[j] alors
+        estPresent ← VRAI
+    FinPour
+    Si estPresent = FAUX alors
+      somme ← somme + tab2[i]
+  FinPour
+
+  Afficher "Somme des éléments distincts : ", somme
+END

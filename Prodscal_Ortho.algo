@@ -1,0 +1,48 @@
+// 1. Écrivez une procédure, appelée dot_product qui calcule dans la variable ps, 
+// le produit scalaire de v1 et v2 (v1 et v2 sont des vecteurs de IR)
+ALGORITHM Procédure_dot_product(v1, v2, n, ps)
+VAR
+  i : entier
+
+BEGIN
+  ps ← 0
+  Pour i de 0 à n - 1
+    ps ← ps + (v1[i] * v2[i])
+  FinPour
+END
+// test de l'orthogonalité 
+ALGORITHM TestOrthogonalite
+VAR
+  v1, v2 : tableau de réels
+  ps : réel
+  n : entier
+
+BEGIN
+  n ← 3
+  v1 ← [1, 2, -1]
+  v2 ← [2, -1, 0]
+
+  Appeler dot_product(v1, v2, n, ps)
+
+  Afficher "Produit scalaire = ", ps
+
+  Si ps = 0 alors
+    Afficher "Les vecteurs sont orthogonaux"
+  Sinon
+    Afficher "Les vecteurs ne sont pas orthogonaux"
+  FinSi
+END
+// variante avec une fonction au lieu d'une procédure
+
+ALGORITHM Fonction_dot_product(v1, v2, n) : réel
+VAR
+  i, ps : entier
+
+BEGIN
+  ps ← 0
+  Pour i de 0 à n - 1
+    ps ← ps + v1[i] * v2[i]
+  FinPour
+  Retourner ps
+END
+
